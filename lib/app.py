@@ -33,7 +33,7 @@ Lilly = Person(
     last_name = 'Johnson',
     phone_number = '555-555-5053',
     email = 'princess@gmail.com',
-    bithday = 11/11/1999
+    bithday = '11/11/1999'
 )
 Lilly.save()
 Bailey = Person(
@@ -41,7 +41,7 @@ Bailey = Person(
     last_name = 'Johnson',
     phone_number = '555-240-0443',
     email = 'bobbyb@mail.com',
-    birthday = 10/30/2002
+    birthday = '10/30/2002'
 )
 Bailey.save()
 person = Person.get(Person.first_name == 'Levani')
