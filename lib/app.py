@@ -18,3 +18,4 @@ db.create_tables([Person])
 ##
 Levani = Person(first_name = 'Levani', last_name = 'Papashvili',
     phone_number = '249-943-0303', email = 'levani@mail.com', birthday = 11/11/1984)
+Levani.save()
