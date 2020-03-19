@@ -1,5 +1,5 @@
-CREATE DATABASE 'contact_book';
-CREATE TABLE 'contacts' (
+CREATE DATABASE contact_book;
+CREATE TABLE contacts (
     id SERIAL PRIMARY KEY,
     first_name VARCHAR NOT NULL,
     last_name VARCHAR NOT NULL,
