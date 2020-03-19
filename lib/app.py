@@ -49,7 +49,7 @@ Jeremy = Person(
     last_name = 'Johnson',
     phone_number = '555-980-6578',
     email = 'jeremypa@mail.com',
-    birthday = '24/09/1982'
+    birthday = '09/24/1982'
 )
 Jeremy.save()
 Gio = Person(
@@ -161,7 +161,7 @@ Wako = Person(
     last_name = 'Mamuashvili',
     phone_number = '555-876-1543',
     email = 'mamunsk@mail.com',
-    birthday = '15/01/2000'
+    birthday = '01/15/2000'
 )
 Wako.save()
 Mariami = Person(
@@ -180,6 +180,23 @@ Soso = Person(
     birthday = '07/08/1988'
 )
 Soso.save()
+Datuna = Person(
+    first_name = 'Datuna',
+    last_name = 'Lkaon',
+    phone_number = '667-829-5658',
+    email = 'datunammm@mail.com',
+    birthday = '09/10/1989'
+)
+Datuna.save()
+
+Nodo = Person(
+    first_name = 'Nodo',
+    last_name = 'Noniashvili',
+    phone_number = '222-429-5018',
+    email = 'nodoppp@mail.com',
+    birthday = '07/01/1980'
+)
+Nodo.save()
 
 
 person = Person.get(Person.first_name == 'Levani')
