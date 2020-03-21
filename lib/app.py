@@ -21,7 +21,7 @@ db.connect()
 db.drop_tables([Person])
 db.create_tables([Person])
 
-##### Populating the SQL Database
+# Populating the SQL Database
 Levani = Person(first_name = 'Levani', last_name = 'Papashvili',
     phone_number = '249-943-0303', email = 'levani@mail.com', birthday = '11/11/1984')
 Levani.save()
@@ -201,7 +201,7 @@ Nodo = Person(
 )
 Nodo.save()
 
-### Ending populating database
+## Ending populating database
 
 #Display all of the Contacts
 
@@ -218,7 +218,7 @@ def show_contact():
     introduction()
     #show_contact() 
     
-#### Create a New Contact
+### Create a New Contact
 def create_contact():
     new_first_name = input('Insert First Name: ')
     new_last_name = input('Insert Last Name: ')
