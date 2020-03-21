@@ -279,13 +279,14 @@ def update_contact():
         else:
             introduction()
 
+#super careful and fun delete function
 
 def delete_contact():
     tester = input('Are you want to delete on of these hot mamas? y/n: ')
-    if tester == 'no':
+    if tester == 'n':
         print('thought not!')
         introduction()
-    if tester == 'yes':
+    if tester == 'y':
         contacts = Person.select()
         for contact in contacts:
             print(contact.first_name, contact.last_name)
@@ -321,7 +322,5 @@ def introduction():
         exit()
 
 introduction()
-#person = Person.get(Person.first_name == 'Levani')
-#print(person.first_name)
-#print(person.last_name)
-#print(person.birthday)3
+
+
