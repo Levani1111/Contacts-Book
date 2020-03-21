@@ -1,4 +1,4 @@
-from peewee import PostgresqlDatabase, Model, CharField, DateField
+from peewee import Model, CharField, DateField, PostgresqlDatabase
 import psycopg2
 from datetime import date
 
