@@ -203,6 +203,8 @@ Nodo.save()
 
 ### Ending populating database
 
+#Display all of the Contacts
+
 def show_contact():
     contacts = Person.select()
     for contact in contacts:
@@ -214,23 +216,31 @@ def show_contact():
     contact = Person.get(Person.last_name == show)
     print(f' Full Name: {contact.first_name} {contact.last_name} \nBirthday: {contact.birthday} \nPhone Number: {contact.phone_number} \nEmail: {contact.email} ')
     #show_contact() 
-    # 
-
+    
+#### Create a New Contact
 def create_contact():
     new_first_name = input('Insert First Name: ')
     new_last_name = input('Insert Last Name: ')
-    new_birtday = input('Insert Birthday: ')
+    new_birthday = input('Insert Birthday: ')
     new_phone_number = input('Insert Phone Number: ')
     new_email = input('Insert Email Address: ')
     
     add_contact = Person(
-        first_name = new_first_name
+        first_name = new_first_name,
         last_name = new_last_name,
         birthday = new_birthday,
         phone_number = new_phone_number,
         email = new_email
     )
     add_contact.save()
+
+# Update the contacts
+
+def update_contact():
+    contacts = Person.select()
+    for contact in contacts:
+        print(contact.first_name, contact.last_name)
+    ask
 
 show_contact()
 create_contact()
