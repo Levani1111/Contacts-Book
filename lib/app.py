@@ -213,9 +213,28 @@ def show_contact():
         print('start over')
     contact = Person.get(Person.last_name == show)
     print(f' Full Name: {contact.first_name} {contact.last_name} \nBirthday: {contact.birthday} \nPhone Number: {contact.phone_number} \nEmail: {contact.email} ')
-    #show_contact()         
-show_contact()
+    #show_contact() 
+    # 
 
+def create_contact():
+    new_first_name = input('Insert First Name: ')
+    new_last_name = input('Insert Last Name: ')
+    new_birtday = input('Insert Birthday: ')
+    new_phone_number = input('Insert Phone Number: ')
+    new_email = input('Insert Email Address: ')
+    
+    add_contact = Person(
+        first_name = new_first_name
+        last_name = new_last_name,
+        birthday = new_birthday,
+        phone_number = new_phone_number,
+        email = new_email
+    )
+    add_contact.save()
+
+show_contact()
+create_contact()
+show_contact()
 #person = Person.get(Person.first_name == 'Levani')
 #print(person.first_name)
 #print(person.last_name)
