@@ -5,20 +5,23 @@ from datetime import date
 
 db = PostgresqlDatabase('contact_book', user='postgres', password='',
                        host='localhost', port=5432)
+
 class BaseModel(Model):
     class Meta:
         database = db
+
 class Person(BaseModel):    
     first_name = CharField()
     last_name = CharField()
     phone_number = CharField()
-    email  = CharField
+    email  = CharField()
     birthday = DateField()
+
 db.connect()
 db.drop_tables([Person])
 db.create_tables([Person])
 
-##
+##### Populating the SQL Database
 Levani = Person(first_name = 'Levani', last_name = 'Papashvili',
     phone_number = '249-943-0303', email = 'levani@mail.com', birthday = '11/11/1984')
 Levani.save()
@@ -198,8 +201,22 @@ Nodo = Person(
 )
 Nodo.save()
 
+### Ending populating database
 
-person = Person.get(Person.first_name == 'Levani')
-print(person.first_name)
-print(person.last_name)
-print(person.birthday)
+def show_contact():
+    contacts = Person.select()
+    for contact in contacts:
+        print(contact.first_name, contact.last_name)
+    show = input("Enter a last name for all of the contact information \nthis is case sensative: ")
+    if show == 'z':
+        #start()
+        print('start over')
+    contact = Person.get(Person.last_name == show)
+    print(f' Full Name: {contact.first_name} {contact.last_name} \nBirthday: {contact.birthday} \nPhone Number: {contact.phone_number} \nEmail: {contact.email} ')
+    #show_contact()         
+show_contact()
+
+#person = Person.get(Person.first_name == 'Levani')
+#print(person.first_name)
+#print(person.last_name)
+#print(person.birthday)
