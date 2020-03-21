@@ -215,6 +215,7 @@ def show_contact():
         print('start over')
     contact = Person.get(Person.last_name == show)
     print(f' Full Name: {contact.first_name} {contact.last_name} \nBirthday: {contact.birthday} \nPhone Number: {contact.phone_number} \nEmail: {contact.email} ')
+    introduction()
     #show_contact() 
     
 #### Create a New Contact
@@ -233,6 +234,7 @@ def create_contact():
         email = new_email
     )
     add_contact.save()
+    introduction()
 
 # Update the contacts
 
@@ -240,12 +242,86 @@ def update_contact():
     contacts = Person.select()
     for contact in contacts:
         print(contact.first_name, contact.last_name)
-    ask
+    last_n = input('Enter the last name of the contact you want to update \nThis is Case Sensative: ')
+    if last_n == Person.last_name:
+        print(' 1: First name \n 2: Last name \n 3: Birthday \n 4: Phone number \n 5: Email \n 6: Address')
+        ask = input('Enter number of subject to update: ')
+        if ask == '1':
+            contact = Person.get(Person.last_name == last_n)
+            contact.first_name = input('New first name: ')
+            contact.save()
+            introduction()
+        elif ask == '2':
+            contact = Person.get(Person.last_name == last_n)
+            contact.last_name = input('New last name: ')
+            contact.save()
+            introduction()
+        elif ask == '3':
+            contact = Person.get(Person.last_name == last_n)
+            contact.birthday = input('New birthday: ')
+            contact.save()
+            introduction()
+        elif ask == '4':
+            contact = Person.get(Person.last_name == last_n)
+            contact.phone = input('New phone number: ')
+            contact.save()
+            introduction()
+        elif ask == '5':
+            contact = Person.get(Person.last_name == last_n)
+            contact.email = input('New email: ')
+            contact.save()
+            introduction()
+        elif ask == '6':
+            contact = Person.get(Person.last_name == last_n)
+            contact.address = input('New address: ')
+            contact.save()
+            introduction()
+        else:
+            introduction()
 
-show_contact()
-create_contact()
-show_contact()
+
+def delete_contact():
+    tester = input('Are you want to delete on of these hot mamas? y/n: ')
+    if tester == 'no':
+        print('thought not!')
+        introduction()
+    if tester == 'yes':
+        contacts = Person.select()
+        for contact in contacts:
+            print(contact.first_name, contact.last_name)
+        bye = input('Which frienemy do you want to get rid off? \n Enter last name: ')
+        if bye == Person.last_name:
+            sure = input('Are you sure you want to get rid of them? y/n: ')
+            if sure == 'y':
+                contact = Person.get(Person.last_name == bye)
+                contact.delete_instance()
+                introduction()
+            else:
+                delete_contact()
+        else:
+            print("that person doesn't exist....yet")
+            introduction()
+
+
+    introduction()
+
+def introduction():
+    print('Welcome to Levani Contact Book \n 1: Show Contacts \n 2: Create Contact \n 3: Update Contact \n 4: Delete Contact \n 5: Exit')
+    greet = input('Enter the number of what you want to do: ')
+    if greet == '1':
+        show_contact()
+    elif greet == '2':
+        create_contact()
+    elif greet == '3':
+        update_contact()
+    elif greet == '4':
+        delete_contact()
+    else:
+        print('GURL, you are done! BYE!!')
+        exit()
+
+introduction()
 #person = Person.get(Person.first_name == 'Levani')
 #print(person.first_name)
 #print(person.last_name)
-#print(person.birthday)
+#print(person.birthday)3
