@@ -212,7 +212,7 @@ def show_contact():
     show = input("Enter a last name for all of the contact information \nthis is case sensative: ")
     try:
         contact = Person.get(Person.last_name == show)
-        print(f' Full Name: {contact.first_name} {contact.last_name} \nBirthday: {contact.birthday} \nPhone Number: {contact.phone_number} \nEmail: {contact.email} ')
+        print(f'\n \nFull Name: {contact.first_name} {contact.last_name} \nBirthday: {contact.birthday} \nPhone Number: {contact.phone_number} \nEmail: {contact.email} \n \n')
         introduction()
     except: #Exception as error:
         print('That name does not exist')
@@ -312,7 +312,7 @@ def delete_contact():
     introduction()
 
 def introduction():
-    print('Welcome to Levani Contact Book \n 1: Show Contacts \n 2: Create Contact \n 3: Update Contact \n 4: Delete Contact \n 5: Exit')
+    print('\n\n\nWelcome to Levani Contact Book \n 1: Show Contacts \n 2: Create Contact \n 3: Update Contact \n 4: Delete Contact \n 5: Exit')
     greet = input('Enter the number of what you want to do: ')
     if greet == '1':
         show_contact()
