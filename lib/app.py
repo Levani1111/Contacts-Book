@@ -210,14 +210,13 @@ def show_contact():
     for contact in contacts:
         print(contact.first_name, contact.last_name)
     show = input("Enter a last name for all of the contact information \nthis is case sensative: ")
-    contact = Person.get(Person.last_name == show)
-    if contact = None:
-        print('person does not exist')
-        introduction()
-    else:
+    try:
+        contact = Person.get(Person.last_name == show)
         print(f' Full Name: {contact.first_name} {contact.last_name} \nBirthday: {contact.birthday} \nPhone Number: {contact.phone_number} \nEmail: {contact.email} ')
         introduction()
-    #show_contact() 
+    except: #Exception as error:
+        print('That name does not exist')
+        introduction()
     
 ### Create a New Contact
 def create_contact():
@@ -244,42 +243,43 @@ def update_contact():
     for contact in contacts:
         print(contact.first_name, contact.last_name)
     last_n = input('Enter the last name of the contact you want to update \nThis is Case Sensative: ')
-    if last_n == Person.last_name:
-        print(' 1: First name \n 2: Last name \n 3: Birthday \n 4: Phone number \n 5: Email \n 6: Address')
-        ask = input('Enter number of subject to update: ')
-        if ask == '1':
-            contact = Person.get(Person.last_name == last_n)
-            contact.first_name = input('New first name: ')
-            contact.save()
-            introduction()
-        elif ask == '2':
-            contact = Person.get(Person.last_name == last_n)
-            contact.last_name = input('New last name: ')
-            contact.save()
-            introduction()
-        elif ask == '3':
-            contact = Person.get(Person.last_name == last_n)
-            contact.birthday = input('New birthday: ')
-            contact.save()
-            introduction()
-        elif ask == '4':
-            contact = Person.get(Person.last_name == last_n)
-            contact.phone = input('New phone number: ')
-            contact.save()
-            introduction()
-        elif ask == '5':
-            contact = Person.get(Person.last_name == last_n)
-            contact.email = input('New email: ')
-            contact.save()
-            introduction()
-        elif ask == '6':
-            contact = Person.get(Person.last_name == last_n)
-            contact.address = input('New address: ')
-            contact.save()
-            introduction()
-        else:
-            introduction()
-    else:
+    try:
+        if last_n == Person.last_name:
+            print(' 1: First name \n 2: Last name \n 3: Birthday \n 4: Phone number \n 5: Email \n 6: Address')
+            ask = input('Enter number of subject to update: ')
+            if ask == '1':
+                contact = Person.get(Person.last_name == last_n)
+                contact.first_name = input('New first name: ')
+                contact.save()
+                introduction()
+            elif ask == '2':
+                contact = Person.get(Person.last_name == last_n)
+                contact.last_name = input('New last name: ')
+                contact.save()
+                introduction()
+            elif ask == '3':
+                contact = Person.get(Person.last_name == last_n)
+                contact.birthday = input('New birthday: ')
+                contact.save()
+                introduction()
+            elif ask == '4':
+                contact = Person.get(Person.last_name == last_n)
+                contact.phone = input('New phone number: ')
+                contact.save()
+                introduction()
+            elif ask == '5':
+                contact = Person.get(Person.last_name == last_n)
+                contact.email = input('New email: ')
+                contact.save()
+                introduction()
+            elif ask == '6':
+                contact = Person.get(Person.last_name == last_n)
+                contact.address = input('New address: ')
+                contact.save()
+                introduction()
+            else:
+                introduction()
+    except:
         print('That person does not exist')
         introduction()
 
