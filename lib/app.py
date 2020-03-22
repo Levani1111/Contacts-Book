@@ -322,6 +322,9 @@ def introduction():
         update_contact()
     elif greet == '4':
         delete_contact()
+    elif greet == '5':
+        print('GURL, You are done! BYE!!')
+        exit()
     else:
         print('GURL, You are done! BYE!!')
         exit()
