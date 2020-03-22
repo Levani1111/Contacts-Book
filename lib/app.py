@@ -33,7 +33,7 @@ Sara = Person(first_name = 'Sara', last_name ='Ross',
 Sara.save()
 Lilly = Person(
     first_name = 'Lilly',
-    last_name = 'Johnson',
+    last_name = 'Tighe',
     phone_number = '555-555-5053',
     email = 'princess@gmail.com',
     birthday = '11/13/1999'
@@ -41,7 +41,7 @@ Lilly = Person(
 Lilly.save()
 Bailey = Person(
     first_name = 'Bailey',
-    last_name = 'Johnson',
+    last_name = 'Delin',
     phone_number = '555-240-0443',
     email = 'bobbyb@mail.com',
     birthday = '10/30/2002'
@@ -210,12 +210,13 @@ def show_contact():
     for contact in contacts:
         print(contact.first_name, contact.last_name)
     show = input("Enter a last name for all of the contact information \nthis is case sensative: ")
-    if show != Person.last_name:
-        print('Name Not found, start over')
-        introduction()
     contact = Person.get(Person.last_name == show)
-    print(f' Full Name: {contact.first_name} {contact.last_name} \nBirthday: {contact.birthday} \nPhone Number: {contact.phone_number} \nEmail: {contact.email} ')
-    introduction()
+    if contact = None:
+        print('person does not exist')
+        introduction()
+    else:
+        print(f' Full Name: {contact.first_name} {contact.last_name} \nBirthday: {contact.birthday} \nPhone Number: {contact.phone_number} \nEmail: {contact.email} ')
+        introduction()
     #show_contact() 
     
 ### Create a New Contact
