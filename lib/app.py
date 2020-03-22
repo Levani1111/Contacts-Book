@@ -286,7 +286,7 @@ def update_contact():
 #super careful and fun delete function
 
 def delete_contact():
-    tester = input('Are you want to delete on of these hot mamas? y/n: ')
+    tester = input('Are you want to delete one of these hot mamas? y/n: ')
     if tester == 'n':
         print('thought not!')
         introduction()
