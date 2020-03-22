@@ -295,7 +295,8 @@ def delete_contact():
         for contact in contacts:
             print(contact.first_name, contact.last_name)
         bye = input('Which frienemy do you want to get rid off? \n Enter last name: ')
-        if bye == Person.last_name:
+        try: 
+            bye == Person.last_name:
             sure = input('Are you sure you want to get rid of them? y/n: ')
             if sure == 'y':
                 contact = Person.get(Person.last_name == bye)
@@ -303,7 +304,7 @@ def delete_contact():
                 introduction()
             else:
                 delete_contact()
-        else:
+        except:
             print("that person doesn't exist....yet")
             introduction()
 
