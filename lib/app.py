@@ -210,9 +210,9 @@ def show_contact():
     for contact in contacts:
         print(contact.first_name, contact.last_name)
     show = input("Enter a last name for all of the contact information \nthis is case sensative: ")
-    if show == 'z':
-        #start()
-        print('start over')
+    if show != Person.last_name:
+        print('Name Not found, start over')
+        introduction()
     contact = Person.get(Person.last_name == show)
     print(f' Full Name: {contact.first_name} {contact.last_name} \nBirthday: {contact.birthday} \nPhone Number: {contact.phone_number} \nEmail: {contact.email} ')
     introduction()
@@ -278,6 +278,9 @@ def update_contact():
             introduction()
         else:
             introduction()
+    else:
+        print('That person does not exist')
+        introduction()
 
 #super careful and fun delete function
 
@@ -318,7 +321,7 @@ def introduction():
     elif greet == '4':
         delete_contact()
     else:
-        print('GURL, you are done! BYE!!')
+        print('GURL, That is not an option. You are done! BYE!!')
         exit()
 
 introduction()

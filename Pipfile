@@ -9,6 +9,7 @@ verify_ssl = true
 peewee = "*"
 psycopg2 = "*"
 datetime = "*"
+pylint = "*"
 
 [requires]
 python_version = "3.8"
