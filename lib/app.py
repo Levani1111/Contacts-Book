@@ -1,6 +1,8 @@
 from peewee import Model, CharField, DateField, PostgresqlDatabase
 import psycopg2
 from datetime import date
+import os
+
 
 
 db = PostgresqlDatabase('contact_book', user='postgres', password='',
@@ -308,9 +310,9 @@ def delete_contact():
             print("that person doesn't exist....yet")
             introduction()
 
-
     introduction()
 
+#Function for the interactive menu
 def introduction():
     print('\n\nWelcome to Levani Contact Book \n 1: Show Contacts \n 2: Create Contact \n 3: Update Contact \n 4: Delete Contact \n 5: Exit')
     greet = input('Enter the number of what you want to do: ')
@@ -324,11 +326,12 @@ def introduction():
         delete_contact()
     elif greet == '5':
         print('GURL, You are done! BYE!!')
-        exit()
+        os._exit(1)
     else:
-        print('GURL, You are done! BYE!!')
-        exit()
+        print('GURL, that is not an option, k?')
+        introduction()
 
+### Start your engines
 introduction()
 
 
