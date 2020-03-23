@@ -247,7 +247,7 @@ def update_contact():
     last_n = input('Enter the last name of the contact you want to update \nThis is Case Sensative: ')
     try:
         if last_n == Person.last_name:
-            print(' 1: First name \n 2: Last name \n 3: Birthday \n 4: Phone number \n 5: Email \n 6: Address')
+            print(' 1: First name \n 2: Last name \n 3: Birthday \n 4: Phone number \n 5: Email Address')
             ask = input('Enter number of subject to update: ')
             if ask == '1':
                 contact = Person.get(Person.last_name == last_n)
@@ -272,11 +272,6 @@ def update_contact():
             elif ask == '5':
                 contact = Person.get(Person.last_name == last_n)
                 contact.email = input('New email: ')
-                contact.save()
-                introduction()
-            elif ask == '6':
-                contact = Person.get(Person.last_name == last_n)
-                contact.address = input('New address: ')
                 contact.save()
                 introduction()
             else:
